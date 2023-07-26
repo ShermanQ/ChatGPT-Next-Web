@@ -36,7 +36,7 @@ export default function RootLayout({
         <script src="/serviceWorkerRegister.js" defer></script>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4161886672233144"
      crossOrigin="anonymous"></script>
-        <script async src="https://umami.googlec.org/script.js" data-website-id="781e6837-2c67-4994-953e-4025347447cd"></script>
+        <script async src="https://umami.googlec.org/script.js" data-website-id="e6226a14-d388-4b09-b363-68d3b3578f89"></script>
       </head>
       <body>{children}</body>
     </html>
