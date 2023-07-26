@@ -22,7 +22,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-RUN yarn build
+RUN DISABLE_CHUNK=1 yarn build
 
 FROM base AS runner
 WORKDIR /app
