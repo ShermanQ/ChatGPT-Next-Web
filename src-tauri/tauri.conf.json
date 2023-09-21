@@ -9,7 +9,7 @@
   },
   "package": {
     "productName": "Easy ChatGPT",
-    "version": "2.9.1"
+    "version": "2.9.7"
   },
   "tauri": {
     "allowlist": {
@@ -83,7 +83,7 @@
       "csp": null
     },
     "updater": {
-      "active": true,
+      "active": false,
       "endpoints": [
         "https://github.com/Yidadaa/ChatGPT-Next-Web/releases/latest/download/latest.json"
       ],
@@ -95,7 +95,7 @@
     },
     "windows": [
       {
-        "fullscreen": false,
+        "fullscreen": true,
         "height": 600,
         "resizable": true,
         "title": "Easy ChatGPT",
