@@ -85,9 +85,9 @@ export const DEFAULT_MODELS = [
     available: true,
   },
   {
-    name: "gpt-4-32k",
+    name: "gpt-4-0613",
     available: true,
-  },
+   },
   {
     name: "gpt-3.5-turbo",
     available: true,
@@ -97,13 +97,17 @@ export const DEFAULT_MODELS = [
     available: true,
   },
   {
+    name: "gpt-3.5-turbo-0613",
+    available: true,
+  },
+  {
     name: "gpt-3.5-turbo-16k",
     available: true,
   },
   {
-    name: "llama-2-70b-chat",
+    name: "gpt-3.5-turbo-16k-0613",
     available: true,
-  },
+  }
 ] as const;
 
 export const CHAT_PAGE_SIZE = 15;
