@@ -44,6 +44,12 @@
         "startDragging": true,
         "unmaximize": true,
         "unminimize": true
+      },
+      "fs": {
+        "all": true
+      },
+      "notification": {
+        "all": true
       }
     },
     "bundle": {
@@ -80,12 +86,13 @@
       }
     },
     "security": {
-      "csp": null
+      "csp": null,
+      "dangerousUseHttpScheme": true
     },
     "updater": {
-      "active": false,
+      "active": true,
       "endpoints": [
-        "https://github.com/Yidadaa/ChatGPT-Next-Web/releases/latest/download/latest.json"
+        "https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web/releases/latest/download/latest.json"
       ],
       "dialog": false,
       "windows": {
