@@ -25,6 +25,7 @@ export enum Path {
 
 export enum ApiPath {
   Cors = "",
+  Azure = "/api/azure",
   OpenAI = "/api/openai",
   Anthropic = "/api/anthropic",
 }
@@ -93,6 +94,8 @@ export const OpenaiPath = {
 };
 
 export const Azure = {
+  ChatPath: (deployName: string, apiVersion: string) =>
+    `deployments/${deployName}/chat/completions?api-version=${apiVersion}`,
   ExampleEndpoint: "https://{resource-url}/openai/deployments/{deploy-id}",
 };
 
@@ -127,6 +130,8 @@ export const KnowledgeCutOffDate: Record<string, string> = {
   "gpt-4-turbo": "2023-12",
   "gpt-4-turbo-2024-04-09": "2023-12",
   "gpt-4-turbo-preview": "2023-12",
+  "gpt-4o": "2023-10",
+  "gpt-4o-2024-05-13": "2023-10",
   "gpt-4-vision-preview": "2023-04",
   // After improvements,
   // it's now easier to add "KnowledgeCutOffDate" instead of stupid hardcoding it, as was done previously.
@@ -144,13 +149,17 @@ const openaiModels = [
   "gpt-4-32k-0613",
   "gpt-4-turbo",
   "gpt-4-turbo-preview",
+  "gpt-4o",
+  "gpt-4o-2024-05-13",
   "gpt-4-vision-preview",
   "gpt-4-turbo-2024-04-09",
+  "gpt-4-1106-preview",
 ];
 
 const googleModels = [
   "gemini-1.0-pro",
   "gemini-1.5-pro-latest",
+  "gemini-1.5-flash-latest",
   "gemini-pro-vision",
 ];
 
@@ -161,6 +170,7 @@ const anthropicModels = [
   "claude-3-sonnet-20240229",
   "claude-3-opus-20240229",
   "claude-3-haiku-20240307",
+  "claude-3-5-sonnet-20240620",
 ];
 
 export const DEFAULT_MODELS = [
@@ -171,6 +181,15 @@ export const DEFAULT_MODELS = [
       id: "openai",
       providerName: "OpenAI",
       providerType: "openai",
+    },
+  })),
+  ...openaiModels.map((name) => ({
+    name,
+    available: true,
+    provider: {
+      id: "azure",
+      providerName: "Azure",
+      providerType: "azure",
     },
   })),
   ...googleModels.map((name) => ({
@@ -197,11 +216,12 @@ export const CHAT_PAGE_SIZE = 15;
 export const MAX_RENDER_MSG_COUNT = 45;
 
 // some famous webdav endpoints
-export const internalWhiteWebDavEndpoints = [
+export const internalAllowedWebDavEndpoints = [
   "https://dav.jianguoyun.com/dav/",
   "https://dav.dropdav.com/",
   "https://dav.box.com/dav",
   "https://nanao.teracloud.jp/dav/",
+  "https://bora.teracloud.jp/dav/",
   "https://webdav.4shared.com/",
   "https://dav.idrivesync.com",
   "https://webdav.yandex.com",
